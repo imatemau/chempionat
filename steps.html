@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Шаги рецепта — Кухни мира</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="sidebar">
+      <div class="brand">Кухни мира · Админ</div>
+      <nav>
+        <a href="recipes.html">Рецепты</a>
+        <a href="ingredients.html">Ингредиенты</a>
+        <a href="categories.html">Категории</a>
+        <a href="steps.html" class="active">Шаги</a>
+        <a href="orders.html">Заказы</a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="page-header">
+        <h1>Шаги рецепта «Борщ»</h1>
+        <a href="step-form.html" class="btn btn-primary">+ Добавить шаг</a>
+      </div>
+
+      <div class="panel">
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Фото</th>
+                <th>Название</th>
+                <th>Описание</th>
+                <th>Действия</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><img class="thumb" src="images/step1.jpg" alt="Подготовка"></td>
+                <td>Подготовка</td>
+                <td>Сварить бульон из говядины</td>
+                <td>
+                  <div class="row-actions">
+                    <a href="step-form.html" class="btn btn-secondary btn-sm">Редактировать</a>
+                    <button class="btn btn-danger btn-sm">Удалить</button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td><img class="thumb" src="images/step2.jpg" alt="Варка"></td>
+                <td>Варка</td>
+                <td>Добавить свёклу и капусту, варить 20 минут</td>
+                <td>
+                  <div class="row-actions">
+                    <a href="step-form.html" class="btn btn-secondary btn-sm">Редактировать</a>
+                    <button class="btn btn-danger btn-sm">Удалить</button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td><img class="thumb" src="images/step3.jpg" alt="Подача"></td>
+                <td>Подача</td>
+                <td>Подавать со сметаной и зеленью</td>
+                <td>
+                  <div class="row-actions">
+                    <a href="step-form.html" class="btn btn-secondary btn-sm">Редактировать</a>
+                    <button class="btn btn-danger btn-sm">Удалить</button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

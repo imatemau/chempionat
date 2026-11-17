@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Рецепт — Кухни мира</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="sidebar">
+      <div class="brand">Кухни мира · Админ</div>
+      <nav>
+        <a href="recipes.html" class="active">Рецепты</a>
+        <a href="ingredients.html">Ингредиенты</a>
+        <a href="categories.html">Категории</a>
+        <a href="steps.html">Шаги</a>
+        <a href="orders.html">Заказы</a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="page-header">
+        <h1>Добавление рецепта</h1>
+        <a href="recipes.html" class="btn btn-secondary">← Назад к списку</a>
+      </div>
+
+      <form action="#" method="post" enctype="multipart/form-data">
+        <!-- Основная информация -->
+        <div class="panel">
+          <h2 style="font-size:16px; margin-bottom:16px;">Основная информация</h2>
+
+          <div class="form-group has-error">
+            <label for="title">Название рецепта <span style="color:var(--danger)">*</span></label>
+            <input type="text" id="title" name="title" maxlength="20" placeholder="Например, Борщ">
+            <span class="form-hint">Максимум 20 символов</span>
+            <span class="error-message">Название обязательно и не должно превышать 20 символов</span>
+          </div>
+
+          <div class="form-group">
+            <label for="description">Описание рецепта <span style="color:var(--danger)">*</span></label>
+            <textarea id="description" name="description" minlength="50" maxlength="250" placeholder="Классический борщ с говядиной..."></textarea>
+            <span class="form-hint">От 50 до 250 символов</span>
+            <span class="error-message">Описание должно содержать от 50 до 250 символов</span>
+          </div>
+
+          <div class="form-group">
+            <label for="cooking_time">Время приготовления (минут) <span style="color:var(--danger)">*</span></label>
+            <input type="number" id="cooking_time" name="cooking_time" min="1" placeholder="120">
+            <span class="error-message">Укажите время приготовления числом</span>
+          </div>
+
+          <div class="form-group">
+            <label for="difficulty">Сложность <span style="color:var(--danger)">*</span></label>
+            <select id="difficulty" name="difficulty">
+              <option value="">— Выберите —</option>
+              <option value="легко">Легко</option>
+              <option value="средне">Средне</option>
+              <option value="сложно">Сложно</option>
+            </select>
+            <span class="error-message">Выберите сложность приготовления</span>
+          </div>
+
+          <div class="form-group">
+            <label for="category_id">Категория <span style="color:var(--danger)">*</span></label>
+            <select id="category_id" name="category_id">
+              <option value="">— Выберите категорию —</option>
+              <option value="1">Первые блюда</option>
+              <option value="2">Вторые блюда</option>
+              <option value="3">Десерты</option>
+            </select>
+            <span class="error-message">Выберите категорию рецепта</span>
+          </div>
+
+          <div class="form-group">
+            <label for="price">Цена (₽)</label>
+            <input type="number" id="price" name="price" min="100" step="0.01" placeholder="0.00">
+            <span class="form-hint">Оставьте пустым или 0, если рецепт бесплатный. Платная цена — больше 100</span>
+            <span class="error-message">Цена должна быть числом больше 100</span>
+          </div>
+        </div>
+
+        <!-- Фотографии -->
+        <div class="panel">
+          <h2 style="font-size:16px; margin-bottom:16px;">Фотографии рецепта</h2>
+
+          <div class="form-group">
+            <label for="images">Загрузить фотографии <span style="color:var(--danger)">*</span></label>
+            <input type="file" id="images" name="images[]" multiple accept=".jpg,.jpeg,.png,.webp">
+            <span class="form-hint">
+              От 1 до 5 изображений. Каждое — не более 2 Мб и не менее 500×500 px. Форматы: jpg, jpeg, png, webp.
+            </span>
+            <span class="error-message">Загрузите хотя бы одно изображение (максимум 5)</span>
+          </div>
+
+          <!-- Заглушка вместо картинок -->
+          <div class="image-list">
+            <div class="image-item" style="display:flex; align-items:center; justify-content:center; background:#eee; color:#888; font-size:12px;">
+              Фото 1
+            </div>
+            <div class="image-item" style="display:flex; align-items:center; justify-content:center; background:#eee; color:#888; font-size:12px;">
+              Фото 2
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-top:14px;">
+            <label>Изображение по умолчанию</label>
+            <label class="default-image-label">
+              <input type="radio" name="default_image" value="1" checked> Фото 1
+            </label>
+            <label class="default-image-label">
+              <input type="radio" name="default_image" value="2"> Фото 2
+            </label>
+          </div>
+        </div>
+
+        <!-- Ингредиенты -->
+        <div class="panel">
+          <h2 style="font-size:16px; margin-bottom:16px;">Ингредиенты</h2>
+          <p class="form-hint" style="margin-bottom:12px;">Минимум один ингредиент</p>
+
+          <div class="form-group">
+            <label>Ингредиент 1</label>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+              <select name="ingredients[0][id]" style="flex:2; min-width:180px;">
+                <option value="">— Выберите ингредиент —</option>
+                <option value="1">Свекла</option>
+                <option value="2">Капуста</option>
+                <option value="3">Говядина</option>
+              </select>
+              <input type="number" name="ingredients[0][quantity]" min="1" placeholder="Кол-во" style="flex:1; min-width:100px;">
+              <span style="display:flex; align-items:center; font-size:14px; color:var(--muted);">шт</span>
+            </div>
+            <span class="error-message">Выберите ингредиент и укажите количество</span>
+          </div>
+
+          <div class="form-group">
+            <label>Ингредиент 2</label>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+              <select name="ingredients[1][id]" style="flex:2; min-width:180px;">
+                <option value="">— Выберите ингредиент —</option>
+                <option value="1">Свекла</option>
+                <option value="2">Капуста</option>
+                <option value="3">Говядина</option>
+              </select>
+              <input type="number" name="ingredients[1][quantity]" min="1" placeholder="Кол-во" style="flex:1; min-width:100px;">
+              <span style="display:flex; align-items:center; font-size:14px; color:var(--muted);">шт</span>
+            </div>
+          </div>
+
+          <button type="button" class="btn btn-secondary btn-sm">+ Добавить ингредиент</button>
+        </div>
+
+        <!-- Шаги -->
+        <div class="panel">
+          <h2 style="font-size:16px; margin-bottom:16px;">Шаги приготовления</h2>
+          <p class="form-hint" style="margin-bottom:12px;">Минимум один шаг</p>
+
+          <div class="form-group">
+            <label>Шаг 1</label>
+            <input type="text" name="steps[0][title]" maxlength="40" placeholder="Название шага" style="margin-bottom:8px;">
+            <textarea name="steps[0][description]" maxlength="255" placeholder="Описание шага" style="margin-bottom:8px;"></textarea>
+            <input type="file" name="steps[0][image]" accept=".jpg,.jpeg,.png,.webp">
+            <span class="form-hint">Фото шага: не более 2 Мб, jpg/jpeg/png/webp</span>
+            <span class="error-message">Заполните название и описание шага</span>
+          </div>
+
+          <div class="form-group">
+            <label>Шаг 2</label>
+            <input type="text" name="steps[1][title]" maxlength="40" placeholder="Название шага" style="margin-bottom:8px;">
+            <textarea name="steps[1][description]" maxlength="255" placeholder="Описание шага" style="margin-bottom:8px;"></textarea>
+            <input type="file" name="steps[1][image]" accept=".jpg,.jpeg,.png,.webp">
+          </div>
+
+          <button type="button" class="btn btn-secondary btn-sm">+ Добавить шаг</button>
+        </div>
+
+        <!-- Кнопки -->
+        <div class="panel" style="display:flex; gap:10px;">
+          <button type="submit" class="btn btn-primary">Сохранить рецепт</button>
+          <a href="recipes.html" class="btn btn-secondary">Отмена</a>
+        </div>
+      </form>
+    </main>
+  </div>
+</body>
+</html>

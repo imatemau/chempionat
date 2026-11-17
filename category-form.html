@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Категория — Кухни мира</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="sidebar">
+      <div class="brand">Кухни мира · Админ</div>
+      <nav>
+        <a href="recipes.html">Рецепты</a>
+        <a href="ingredients.html">Ингредиенты</a>
+        <a href="categories.html" class="active">Категории</a>
+        <a href="steps.html">Шаги</a>
+        <a href="orders.html">Заказы</a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="page-header">
+        <h1>Добавление категории</h1>
+        <a href="categories.html" class="btn btn-secondary">← Назад к списку</a>
+      </div>
+
+      <div class="panel" style="max-width:600px;">
+        <form action="/admin/categories" method="post">
+          <div class="form-group has-error">
+            <label for="name">Название категории <span style="color:var(--danger)">*</span></label>
+            <input type="text" id="name" name="name" maxlength="40" placeholder="Например, Первые блюда">
+            <span class="form-hint">Уникальное название, максимум 40 символов</span>
+            <span class="error-message">Название обязательно, уникально и не должно превышать 40 символов</span>
+          </div>
+
+          <div style="display:flex; gap:10px; margin-top:20px;">
+            <button type="submit" class="btn btn-primary">Сохранить</button>
+            <a href="categories.html" class="btn btn-secondary">Отмена</a>
+          </div>
+        </form>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

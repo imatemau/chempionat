@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ингредиент — Кухни мира</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="sidebar">
+      <div class="brand">Кухни мира · Админ</div>
+      <nav>
+        <a href="recipes.html">Рецепты</a>
+        <a href="ingredients.html" class="active">Ингредиенты</a>
+        <a href="categories.html">Категории</a>
+        <a href="steps.html">Шаги</a>
+        <a href="orders.html">Заказы</a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="page-header">
+        <h1>Добавление ингредиента</h1>
+        <a href="ingredients.html" class="btn btn-secondary">← Назад к списку</a>
+      </div>
+
+      <div class="panel" style="max-width:600px;">
+        <form action="#" method="post">
+          <div class="form-group has-error">
+            <label for="title">Название ингредиента <span style="color:var(--danger)">*</span></label>
+            <input type="text" id="title" name="title" maxlength="20" placeholder="Например, Свекла">
+            <span class="form-hint">Уникальное название, максимум 20 символов</span>
+            <span class="error-message">Название обязательно, уникально и не должно превышать 20 символов</span>
+          </div>
+
+          <div class="form-group">
+            <label for="unit">Единица измерения <span style="color:var(--danger)">*</span></label>
+            <select id="unit" name="unit">
+              <option value="">— Выберите —</option>
+              <option value="шт">шт</option>
+              <option value="л">л</option>
+              <option value="кг">кг</option>
+              <option value="мг">мг</option>
+              <option value="ст.л.">ст.л.</option>
+            </select>
+            <span class="error-message">Выберите единицу измерения</span>
+          </div>
+
+          <div style="display:flex; gap:10px; margin-top:20px;">
+            <button type="submit" class="btn btn-primary">Сохранить</button>
+            <a href="ingredients.html" class="btn btn-secondary">Отмена</a>
+          </div>
+        </form>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
